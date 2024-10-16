@@ -10,6 +10,8 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        hackerText: '#00FF00',
+        errorText: '#CC0000',
       },
     },
   },
