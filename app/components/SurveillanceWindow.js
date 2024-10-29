@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import GeneralWindow from "@/app/components/GeneralWindow";
+import {router} from "next/client";
 
 export default function SurveillanceWindow() {
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-    const [playSecurityFootage, setPlaySecurityFootage] = useState(false);
+    const [playSecurityFootage, setPlaySecurityFootage] = useState(true);
     const videoRef = useRef(null);
+    const videoPromise = videoRef.current?.play();
 
     const videoFiles = ["/videos/securityFootage2.mp4", "/videos/securityFootage3.mp4", "/videos/securityFootage4.mp4", "/videos/securityFootage5.mp4"];
 
@@ -17,7 +19,15 @@ export default function SurveillanceWindow() {
             setCurrentVideoIndex((currentVideoIndex + 1) % videoFiles.length);
             setPlaySecurityFootage(true);
         }
-        videoRef.current.play();
+        if (videoPromise !== undefined) {
+            videoPromise.then(_ => {
+                videoRef.current.play();
+                console.log("De video is succesvol afgespeeld");
+            }).catch(error => {
+                console.log("De video kon niet afgespeeld worden" + error);
+                router.reload();
+            });
+        }
     };
 
     useEffect(() => {
