@@ -6,7 +6,7 @@ export default function SurveillanceWindow() {
     const [playSecurityFootage, setPlaySecurityFootage] = useState(false);
     const videoRef = useRef(null);
 
-    const videoFiles = ["/videos/securityFootage2.mp4", "/videos/securityFootage3.mp4", "/videos/securityFootage4.mp4", "/videos/securityFootage5.mp4", "/videos/securityFootage2.mp4", "/videos/securityFootage6.mp4"];
+    const videoFiles = ["/videos/securityFootage2.mp4", "/videos/securityFootage3.mp4", "/videos/securityFootage4.mp4", "/videos/securityFootage5.mp4"];
 
     const playNextVideo = () => {
         if (playSecurityFootage) {
