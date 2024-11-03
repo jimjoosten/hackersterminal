@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import GeneralWindow from "@/app/components/GeneralWindow";
-import {router} from "next/client";
 
 export default function SurveillanceWindow() {
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -25,7 +24,6 @@ export default function SurveillanceWindow() {
                 console.log("De video is succesvol afgespeeld");
             }).catch(error => {
                 console.log("De video kon niet afgespeeld worden" + error);
-                router.reload();
             });
         }
     };
