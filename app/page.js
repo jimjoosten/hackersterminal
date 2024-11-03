@@ -9,7 +9,7 @@ import BinaryWindow from "@/app/components/BinaryWindow";
 import LiveWindow from "@/app/components/LiveWindow";
 import RadarWindow from "@/app/components/RadarWindow";
 
-const correctPassword = "software en media";
+const correctPasswords = ["software en media", "media en software"];
 
 export default function Home() {
     const [input, setInput] = useState('');
@@ -59,7 +59,7 @@ export default function Home() {
         setIsLoading(true);
         setTimeout(() => {
             setIsLoading(false);
-            if (input === correctPassword) {
+            if (correctPasswords.includes(input)) {
                 setIsPasswordCorrect(true);
                 hideAllWindows();
                 localStorage.setItem('isPasswordCorrect', 'true');
